@@ -17,7 +17,7 @@ export default function DefaultFooter() {
         <div className="flex w-full items-center justify-between">
           <FooterBrand
             href="/"
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="/favicon.ico"
             alt="BoxCutter Logo"
             theme={{ img: "mr-2 h-5" }}
           />

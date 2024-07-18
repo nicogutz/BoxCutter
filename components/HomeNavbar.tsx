@@ -5,16 +5,17 @@ import Link from "next/link";
 export default function HomeNavbar() {
   return (
     <header>
-      <Navbar fluid className="px-4 lg:px-6 ">
+      <Navbar fluid>
         <NavbarBrand as={Link} href="/">
           <Image
-            alt="BoxCutter Logo"
+            alt="BOXCUTTER Logo"
             height="24"
-            src="/favicon.png"
+            src="/favicon.ico"
             width="24"
+            className="ml-2 mr-1"
           />
-          <span className="self-center whitespace-nowrap px-1 text-xl font-semibold dark:text-white">
-            BoxCutter
+          <span className="mt-1 self-center whitespace-nowrap px-1 text-xl font-semibold uppercase dark:text-white">
+            BOXCUTTER
           </span>
         </NavbarBrand>
         <DarkThemeToggle />

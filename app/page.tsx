@@ -27,7 +27,7 @@ export default function HomePage() {
                     Create a Box!
                   </Link>
                   <Link
-                    href="/help"
+                    href="/about"
                     className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                   >
                     Learn more
