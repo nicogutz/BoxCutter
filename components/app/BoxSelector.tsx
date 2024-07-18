@@ -1,48 +1,47 @@
 "use client";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import BoxCard from "./BoxCard";
 
 // Styles
 import "swiper/css";
+import "swiper/css/a11y";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function BoxSelector() {
+export interface BoxSelectorProps extends React.HTMLProps<HTMLDivElement> {
+  boxCards: React.ReactNode[];
+}
+
+export default function BoxSelector(props: BoxSelectorProps) {
   return (
-    <div className="flex h-full w-full">
-      <div className="mx-auto w-full self-center text-center">
-        <div className="w-full space-y-4 self-center p-6 sm:p-8 md:space-y-6">
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-            Select your box.
-          </h1>
-          <Swiper
-            // install Swiper modules
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            slidesPerView={1}
-            // navigation
-            centeredSlides
-            centeredSlidesBounds
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            style={{ width: "100%", maxWidth: "600px", padding: "0px"}}
-          >
-            <SwiperSlide>
-              <BoxCard />
-            </SwiperSlide>
-            <SwiperSlide>
-              <BoxCard />
-            </SwiperSlide>
-            <SwiperSlide>
-              <BoxCard />
-            </SwiperSlide>
-            <SwiperSlide>
-              <BoxCard />
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      </div>
-    </div>
+    <Swiper
+      hidden
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar]}
+      spaceBetween={10}
+      slidesPerView={1}
+      breakpoints={{
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        // when window width is >= 640px
+        1000: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      }}
+      navigation
+      initialSlide={0}
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      style={{ width: "100%", maxWidth: "1000px", padding: "0px" }}
+    >
+      {props.boxCards.map((card) => {
+        return <SwiperSlide key={card?.toString() || ""}>{card}</SwiperSlide>;
+      })}
+    </Swiper>
   );
 }
