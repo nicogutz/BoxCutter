@@ -9,11 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export interface BoxSelectorProps extends React.HTMLProps<HTMLDivElement> {
-  boxCards: React.ReactNode[];
-}
-
-export default function BoxSelector(props: BoxSelectorProps) {
+export default function BoxSubSelector() {
   return (
     <Swiper
       hidden

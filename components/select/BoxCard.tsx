@@ -2,7 +2,7 @@ import { Button, Card } from "flowbite-react";
 import Link from "next/link";
 import { HiOutlineArrowRight } from "react-icons/hi";
 
-export interface BoxCardProps extends React.HTMLProps<HTMLDivElement> {
+interface BoxCardProps extends React.HTMLProps<HTMLDivElement> {
   id: string;
   boxType: string;
   description: string;
@@ -23,7 +23,7 @@ export default function BoxCard(props: BoxCardProps) {
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {props.description}
         </p>
-        <Button as={Link} href={`/select/${props.id}`}>
+        <Button as={Link} href={`/app/${props.id}`}>
           Select
           <HiOutlineArrowRight className="ml-2 h-5 w-5" />
         </Button>
