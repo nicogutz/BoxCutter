@@ -1,6 +1,5 @@
-import { Button, Card } from "flowbite-react";
+import { Card } from "flowbite-react";
 import Link from "next/link";
-import { HiOutlineArrowRight } from "react-icons/hi";
 
 interface BoxCardProps extends React.HTMLProps<HTMLDivElement> {
   id: string;
@@ -11,7 +10,10 @@ interface BoxCardProps extends React.HTMLProps<HTMLDivElement> {
 
 export default function BoxCard(props: BoxCardProps) {
   return (
-    <div className="flex w-full max-w-xl justify-center">
+    <Link
+      href={`/app/${props.id}`}
+      className="flex w-full max-w-xl justify-center transition duration-100 hover:scale-95"
+    >
       <Card
         className="max-w-xl"
         imgAlt="Meaningful alt text for an image that is not purely decorative"
@@ -23,11 +25,7 @@ export default function BoxCard(props: BoxCardProps) {
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {props.description}
         </p>
-        <Button as={Link} href={`/app/${props.id}`}>
-          Select
-          <HiOutlineArrowRight className="ml-2 h-5 w-5" />
-        </Button>
       </Card>
-    </div>
+    </Link>
   );
 }

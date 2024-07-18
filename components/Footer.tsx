@@ -7,8 +7,8 @@ export default function DefaultFooter() {
       container
       theme={{
         root: {
-          base: "w-full bg-white shadow dark:bg-gray-800 flex items-center justify-between",
-          container: "w-full h-fit",
+          base: "w-full bg-white shadow dark:bg-gray-800 fixed inset-x-0 bottom-0",
+          container: "w-full h-fit h-min-3",
           bgDark: "bg-gray-800",
         },
       }}

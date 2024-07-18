@@ -1,7 +1,17 @@
 "use client";
 import Link from "next/link";
+import { useEffect } from "react";
 
-export default function NotFound() {
+export default function Error({
+  error,
+}: {
+  error?: Error & { digest?: string };
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
+
   return (
     <section className="flex h-screen">
       <div className="mx-auto max-w-screen-xl self-center px-4 py-8 lg:px-6 lg:py-16">

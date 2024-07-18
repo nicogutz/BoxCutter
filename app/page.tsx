@@ -8,7 +8,7 @@ export default function HomePage() {
       <HomeNavbar />
       <div>
         <div className="mx-5 flex items-start">
-          <div id="main-content" className={"relative h-[84vh] w-full"}>
+          <div id="main-content" className={"relative h-[80vh] w-full"}>
             <header className="flex h-full">
               <div className="mx-auto max-w-screen-xl self-center text-center">
                 <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-6xl">

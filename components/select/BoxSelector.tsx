@@ -50,33 +50,39 @@ const boxes = [
 
 export default function BoxSelector() {
   return (
-    <Swiper
-      hidden
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar]}
-      spaceBetween={10}
-      slidesPerView={1}
-      breakpoints={{
-        // when window width is >= 480px
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-        // when window width is >= 640px
-        1000: {
-          slidesPerView: 4,
-          spaceBetween: 30,
-        },
-      }}
-      navigation
-      initialSlide={0}
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      style={{ width: "100%", maxWidth: "1000px", padding: "0px" }}
-    >
-      {boxes.map((card) => {
-        return <SwiperSlide key={card?.toString() || ""}>{card}</SwiperSlide>;
-      })}
-    </Swiper>
+    <div className="flex w-screen flex-col items-center">
+      <h1 className="mb-6 self-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+        Select box type.
+      </h1>
+
+      <Swiper
+        hidden
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar]}
+        spaceBetween={10}
+        slidesPerView={1}
+        breakpoints={{
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 640px
+          1000: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
+        navigation
+        initialSlide={0}
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        style={{ width: "90vw", padding: "5px", alignSelf: "center" }}
+      >
+        {boxes.map((card) => {
+          return <SwiperSlide key={card?.toString() || ""}>{card}</SwiperSlide>;
+        })}
+      </Swiper>
+    </div>
   );
 }

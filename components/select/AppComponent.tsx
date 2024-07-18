@@ -1,30 +1,46 @@
 "use client";
+import Error from "@/app/error";
 import { Progress } from "flowbite-react";
 import BoxSelector from "./BoxSelector";
+import BoxSubSelector from "./BoxSubSelector";
+
+enum Stage {
+  Selection = 0,
+  SubSelection,
+  Generation,
+}
 
 interface AppComponentProps extends React.HTMLProps<HTMLDivElement> {
   slug: string[];
 }
 
-export default function AppComponent(props: AppComponentProps) {
+export default function AppComponent({ slug }: AppComponentProps) {
+  if (slug && slug.length > 2) {
+    return <Error />;
+  }
+  const status: Stage = slug ? slug.length : 0;
+
+  function renderSwitch() {
+    switch (status) {
+      case Stage.Selection:
+        return <BoxSelector />;
+      case Stage.SubSelection:
+        return <BoxSubSelector />;
+      case Stage.Generation:
+        return;
+
+      default:
+        break;
+    }
+  }
   return (
     <>
-      <Progress progress={props.slug ? props.slug.length * 10 : 10} />
-      <div>
-        <div className="mx-5 flex items-start">
-          <div id="main-content" className={"relative h-[84vh] w-full"}>
-            <div className="flex h-full w-full">
-              <div className="mx-auto w-full self-center text-center">
-                <div className="w-full space-y-4 self-center p-6 sm:p-8 md:space-y-6">
-                  <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-                    Select your box.
-                  </h1>
-                  <BoxSelector />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <Progress
+        progress={slug ? slug.length * 10 : 10}
+        className="fixed top-16 z-50 ml-[2.5vw] w-[95vw]"
+      />
+      <div className="mb-10 flex h-screen items-center">
+        <div className="">{renderSwitch()}</div>
       </div>
     </>
   );
