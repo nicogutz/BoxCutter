@@ -39,9 +39,7 @@ export default function AppComponent({ slug }: AppComponentProps) {
         progress={slug ? slug.length * 10 : 10}
         className="fixed top-16 z-50 ml-[2.5vw] w-[95vw]"
       />
-      <div className="mb-10 flex h-screen items-center">
-        <div className="">{renderSwitch()}</div>
-      </div>
+      {renderSwitch()}
     </>
   );
 }
