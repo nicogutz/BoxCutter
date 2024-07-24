@@ -1,6 +1,6 @@
 import DefaultFooter from "@/components/Footer";
 import HomeNavbar from "@/components/HomeNavbar";
-import AppComponent from "@/components/select/AppComponent";
+import ClientWrapper from "@/components/select/ClientWrapper";
 import type { PageProps } from "@/utils/types";
 
 export default function AppPage({ params }: PageProps) {
@@ -9,7 +9,7 @@ export default function AppPage({ params }: PageProps) {
   return (
     <>
       <HomeNavbar />
-      <AppComponent slug={slug} />
+      <ClientWrapper slug={slug} />
       <DefaultFooter />
     </>
   );

@@ -1,17 +1,22 @@
+"use client";
 import { Card } from "flowbite-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface BoxCardProps extends React.HTMLProps<HTMLDivElement> {
   id: string;
   boxType: string;
   description: string;
   imagePath: string;
+  subPath?: boolean;
 }
 
 export default function BoxCard(props: BoxCardProps) {
+  const pathname = usePathname();
+  const link = props.subPath ? `${pathname}/${props.id}` : `/app/${props.id}`;
   return (
     <Link
-      href={`/app/${props.id}`}
+      href={link}
       className="flex w-full max-w-xl justify-center transition duration-100 hover:scale-95"
     >
       <Card

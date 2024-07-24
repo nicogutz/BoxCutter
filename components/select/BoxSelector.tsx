@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 // Styles
 import "swiper/css";
@@ -6,8 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import { usePython } from "@/utils/python";
-import { useEffect } from "react";
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BoxCard from "./BoxCard";
@@ -49,25 +48,14 @@ const boxes = [
     key={5}
   />,
 ];
-export default function BoxSelector() {
-  const { runPython, stdout, stderr, isReady } = usePython();
-  useEffect(() => {
-    if (isReady) {
-      runPython(`print(" nk")`);
-    }
-  }, [isReady, runPython]);
 
+export default function BoxSelector() {
   return (
     <div className="mb-10 flex h-screen items-center">
       <div className="flex w-screen flex-col items-center">
         <h1 className="mb-6 self-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-5xl">
           Select type
-          <br></br>
-          <code>{stdout}</code>
-          <br></br>
-          <code>{stderr}</code>
         </h1>
-
         <Swiper
           hidden
           // install Swiper modules
@@ -93,6 +81,7 @@ export default function BoxSelector() {
           style={{ width: "90vw", padding: "5px", alignSelf: "center" }}
         >
           {boxes.map((card) => {
+            
             return (
               <SwiperSlide key={card?.toString() || ""}>{card}</SwiperSlide>
             );

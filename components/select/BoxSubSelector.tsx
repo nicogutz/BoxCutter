@@ -7,6 +7,7 @@ import BoxCard from "./BoxCard";
 
 const boxes = [
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -14,6 +15,7 @@ const boxes = [
     key={1}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -21,6 +23,7 @@ const boxes = [
     key={2}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -28,6 +31,7 @@ const boxes = [
     key={3}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -35,6 +39,7 @@ const boxes = [
     key={4}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -42,6 +47,7 @@ const boxes = [
     key={5}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
@@ -49,6 +55,7 @@ const boxes = [
     key={6}
   />,
   <BoxCard
+    subPath
     id="1"
     boxType="Square"
     description="Rounadslkk"
